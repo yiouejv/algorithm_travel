@@ -50,12 +50,7 @@ public:
             } else {
                 l = m + 1;
             }
-            if (l >= r) {
-                if (l > r) return r + 1;
-                else if (target > nums[l]) return l + 1;
-                else return l;
-            }
         }
-        return -1;
+        return r + 1;
     }
 };
