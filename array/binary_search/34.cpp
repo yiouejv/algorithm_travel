@@ -33,42 +33,62 @@ nums 是一个非递减数组
 class Solution {
 public:
     vector<int> searchRange(vector<int>& nums, int target) {
-        int n = nums.size();
-        if (n == 0) {
-            return {-1, -1};
-        }
-        if (n == 1) {
-            if (nums[0] == target) {
-                return {0, 0};
-            } else return {-1, -1};
-        }
-
         int l = 0;
+        int n = nums.size();
         int r = n - 1;
-        int middle = -1;
+
         while (l <= r) {
             int m = l + (r - l) / 2;
             if (nums[m] == target) {
-                middle = m;
-                break;
+
+                // 寻找左边界
+                int left = m;
+                while (left - 1 >= 0 && nums[left - 1] == target) --left;
+
+                // 寻找右边界
+                int right = m;
+                while (right + 1 < n && nums[right + 1] == target) ++right;
+                return {left, right};
+
             } else if (nums[m] > target) {
                 r = m - 1;
             } else {
                 l = m + 1;
             }
         }
-        if (middle == -1) {
-            return {-1, -1};
-        }
-
-        // 寻找左边界
-        int left = middle;
-        while (left - 1 >= 0 && nums[left - 1] == target) --left;
-
-        // 寻找右边界
-        int right = middle;
-        while (right + 1 < n && nums[right + 1] == target) ++right;
-
-        return {left, right};
+        return {-1, -1};
     }
 };
+
+class Solution {
+public:
+    vector<int> searchRange(vector<int>& nums, int target) {
+        int l = 0;
+        int n = nums.size();
+        int r = n;
+
+        while (l < r) {
+            int m = l + (r - l) / 2;
+            if (nums[m] == target) {
+
+                // 寻找左边界
+                int left = m;
+                while (left - 1 >= 0 && nums[left - 1] == target) --left;
+
+                // 寻找右边界
+                int right = m;
+                while (right + 1 < n && nums[right + 1] == target) ++right;
+                return {left, right};
+
+            } else if (nums[m] > target) {
+                r = m;
+            } else {
+                l = m + 1;
+            }
+        }
+        return {-1, -1};
+    }
+};
+
+
+
