@@ -91,4 +91,57 @@ public:
 };
 
 
+class Solution {
+public:
+    vector<int> searchRange(vector<int>& nums, int target) {
+        int n = nums.size();
+        int leftBorder = -2;
+        int rightBorder = -2;
+        leftBorder = GetLeftBorder(nums, target);
+        rightBorder = GetRightBorder(nums, target);
+        // target 在数组的左边或右边
+        if (leftBorder == -2 || rightBorder == -2) {
+            return {-1, -1};
+        }
+        // 找到了元素
+        if (rightBorder - leftBorder > 1) {
+            return {leftBorder + 1, rightBorder - 1};
+        }
+        // target 在数组范围内，并且不存在
+        return {-1, -1};
+    }
+private:
+    int GetLeftBorder(vector<int>& nums, int target) {
+        int l = 0;
+        int r = nums.size() - 1;
+        int leftBorder = -2;
+        while (l <= r) {
+            int m = l + (r - l) / 2;
+            if (nums[m] >= target) {
+                r = m - 1;
+                leftBorder = r;
+            } else {
+                l = m + 1;
+            }
+        }
+        return leftBorder;
+    }
+
+    int GetRightBorder(vector<int>& nums, int target) {
+        int l = 0;
+        int r = nums.size() - 1;
+        int rightBorder = -2;
+        while (l <= r) {
+            int m = l + (r - l) / 2;
+            if (nums[m] > target) {
+                r = m - 1;
+            } else {
+                l = m + 1;
+                rightBorder = l;
+            }
+        }
+        return rightBorder;
+    }
+};
+
 
