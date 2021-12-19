@@ -32,3 +32,5 @@ while (left < right) right 不包含在内, right = nums.size();
 <a href="69.cpp">69. Sqrt(x)</a>
 
 <a href="367.cpp">367. 有效的完全平方数</a>
+
+<a href="278.cpp">278. 第一个错误的版本</a>
