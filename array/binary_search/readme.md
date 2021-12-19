@@ -28,3 +28,5 @@ while (left < right) right 不包含在内, right = nums.size();
 <a href="35.cpp">35. 搜索插入位置</a>
 
 <a href="34.cpp">34. 在排序数组中查找元素的第一个和最后一个位置</a>
+
+<a href="69.cpp">69. Sqrt(x)</a>
