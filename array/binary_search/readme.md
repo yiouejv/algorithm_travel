@@ -34,3 +34,5 @@ while (left < right) right 不包含在内, right = nums.size();
 <a href="367.cpp">367. 有效的完全平方数</a>
 
 <a href="278.cpp">278. 第一个错误的版本</a>
+
+<a href="374.cpp">374. 猜数字大小</a>
