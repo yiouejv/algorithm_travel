@@ -38,3 +38,5 @@ while (left < right) right 不包含在内, right = nums.size();
 <a href="374.cpp">374. 猜数字大小</a>
 
 <a href="744.cpp">744. 寻找比目标字母大的最小字母</a>
+
+<a href="1064.cpp">1064. 不动点</a>
