@@ -42,3 +42,5 @@ while (left < right) right 不包含在内, right = nums.size();
 <a href="1064.cpp">1064. 不动点</a>
 
 <a href="1099.cpp">1099. 小于 K 的两数之和</a>
+
+<a href="1150.cpp">1150. 检查一个数是否在数组中占绝大多数</a>
