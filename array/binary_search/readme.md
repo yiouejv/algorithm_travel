@@ -40,3 +40,5 @@ while (left < right) right 不包含在内, right = nums.size();
 <a href="744.cpp">744. 寻找比目标字母大的最小字母</a>
 
 <a href="1064.cpp">1064. 不动点</a>
+
+<a href="1099.cpp">1099. 小于 K 的两数之和</a>
