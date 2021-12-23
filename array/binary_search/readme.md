@@ -56,3 +56,5 @@ while (left < right) right 不包含在内, right = nums.size();
 <a href="1608.cpp">1608. 特殊数组的特征值</a>
 
 <a href="0803.cpp">面试题 08.03. 魔术索引</a>
+
+<a href="068.cpp">剑指 Offer II 068. 查找插入位置</a>
