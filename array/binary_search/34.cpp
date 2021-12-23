@@ -94,7 +94,6 @@ public:
 class Solution {
 public:
     vector<int> searchRange(vector<int>& nums, int target) {
-        int n = nums.size();
         int leftBorder = -2;
         int rightBorder = -2;
         leftBorder = GetLeftBorder(nums, target);
