@@ -52,3 +52,5 @@ while (left < right) right 不包含在内, right = nums.size();
 <a href="1346.cpp">1346. 检查整数及其两倍数是否存在</a>
 
 <a href="1385.cpp">1385. 两个数组间的距离值</a>
+
+<a href="1608.cpp">1608. 特殊数组的特征值</a>
