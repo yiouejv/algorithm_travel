@@ -54,3 +54,5 @@ while (left < right) right 不包含在内, right = nums.size();
 <a href="1385.cpp">1385. 两个数组间的距离值</a>
 
 <a href="1608.cpp">1608. 特殊数组的特征值</a>
+
+<a href="0803.cpp">面试题 08.03. 魔术索引</a>
