@@ -5,3 +5,5 @@
 
 <a href="sliding_window/readme.md">sliding_window</a>
 
+<a href="matrix_rotate/readme.md">matrix_rotate</a>
+
