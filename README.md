@@ -3,6 +3,8 @@
 
 <a href="array/readme.md">array</a>
 
+<a href="linklist/readme.md">linklist</a>
+
 <a href="最大公约数">最大公约数</a>
 
 <a href="2的整数次幂">2的整数次幂</a>
