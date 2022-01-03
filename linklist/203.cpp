@@ -46,3 +46,26 @@ public:
         return ans;
     }
 };
+
+
+class Solution {
+public:
+    ListNode* removeElements(ListNode* head, int val) {
+        ListNode *dummy = new ListNode(0);
+        dummy->next = head;
+
+        ListNode *pre = dummy;
+        ListNode *cur = head;
+        while (cur) {
+            if (cur->val == val) {
+                ListNode *temp = cur;
+                pre->next = cur->next;
+                delete temp;
+            } else {
+                pre = cur;
+            }
+            cur = cur->next;
+        }
+        return dummy->next;
+    }
+};
