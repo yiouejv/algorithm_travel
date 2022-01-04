@@ -157,6 +157,87 @@ public:
     }
 };
 
+//----------------------------------------
+struct LinkNode {
+    int val;
+    LinkNode *next;
+    LinkNode(int val, LinkNode *next=nullptr) : val(val), next(next) {}
+};
+
+class MyLinkedList {
+private:
+    LinkNode *dummy;
+    int size;
+
+public:
+    MyLinkedList() {
+        dummy = new LinkNode(-1);
+        size = 0;
+    }
+    
+    int get(int index) const {
+        if (index < 0 || index > size - 1) {
+            return -1;
+        }
+        LinkNode *cur = dummy->next;
+        for (int i = 0; i < index; ++i) {
+            cur = cur->next;
+        }
+        return cur->val;
+    }
+    
+    void addAtHead(int val) {
+        LinkNode *node = new LinkNode(val);
+        node->next = dummy->next;
+        dummy->next = node;
+        ++size;
+    }
+    
+    void addAtTail(int val) {
+        LinkNode *cur = dummy;
+        while (cur->next != nullptr) {
+            cur = cur->next;
+        }
+        LinkNode *node = new LinkNode(val);
+        cur->next = node;
+        ++size;
+    }
+    
+    void addAtIndex(int index, int val) {
+        if (index > size) {
+            return;
+        } else if (index <= 0) {
+            return addAtHead(val);
+        } else if (index == size) {
+            return addAtTail(val);
+        }
+        LinkNode *pre = dummy;
+        for (int i = 0; i < index; ++i) {
+            pre = pre->next;
+        }
+        LinkNode *node = new LinkNode(val);
+        node->next = pre->next;
+        pre->next = node;
+        ++size;
+    }
+    
+    void deleteAtIndex(int index) {
+        if (index > size - 1 || index < 0) {
+            return;
+        }
+
+        LinkNode *pre = dummy;
+        for (int i = 0; i < index; ++i) {
+            pre = pre->next;
+        }
+        LinkNode *cur = pre->next;
+        pre->next = cur->next;
+        delete cur;
+        --size;
+    }
+};
+
+
 /**
  * Your MyLinkedList object will be instantiated and called as such:
  * MyLinkedList* obj = new MyLinkedList();
