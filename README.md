@@ -5,6 +5,8 @@
 
 <a href="linklist/readme.md">linklist</a>
 
+<a href="hashtable/readme.md">hashtable</a>
+
 ------------------------------------
 <a href="最大公约数">最大公约数</a>
 
