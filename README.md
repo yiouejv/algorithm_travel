@@ -7,6 +7,8 @@
 
 <a href="hashtable/readme.md">hashtable</a>
 
+<a href="string/readme.md">string</a>
+
 ------------------------------------
 <a href="最大公约数">最大公约数</a>
 
