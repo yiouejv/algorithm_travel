@@ -97,17 +97,8 @@ private:
     queue<int> queue2;
 };
 
-/**
- * Your MyStack object will be instantiated and called as such:
- * MyStack* obj = new MyStack();
- * obj->push(x);
- * int param_2 = obj->pop();
- * int param_3 = obj->top();
- * bool param_4 = obj->empty();
- */
-
 /*
- * 一个对列，弹出时只需不是最后一个元素重新push回队列
+ * 一个对列，弹出时只需把不是最后一个元素重新push回队列
  */
 class MyStack {
 public:
