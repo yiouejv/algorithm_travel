@@ -43,6 +43,11 @@ myStack.empty(); // 返回 False
 
 */
 
+/*
+ * 俩个队列互相倒腾，
+ * 把一个有元素的队列往没有元素的队列倒腾元素，自己只留一个元素，
+ * 最后把自己剩的最后一个元素pop出去
+ */
 
 class MyStack {
 public:
@@ -100,3 +105,49 @@ private:
  * int param_3 = obj->top();
  * bool param_4 = obj->empty();
  */
+
+/*
+ * 一个对列，弹出时只需不是最后一个元素重新push回队列
+ */
+class MyStack {
+public:
+    MyStack() {
+
+    }
+    
+    void push(int x) {
+        queue1.push(x);
+        ++size;
+    }
+    
+    int pop() {
+        int ret;
+        int index = 0;
+
+        while (index < size - 1) {
+            ret = queue1.front();
+            queue1.pop();
+            queue1.push(ret);
+            ++index;
+        }
+        ret = queue1.front();
+        queue1.pop();
+
+        --size;
+        return ret;
+    }
+    
+    int top() {
+        int ret = this->pop();
+        this->push(ret);
+        return ret;
+    }
+    
+    bool empty() {
+        return queue1.empty();
+    }
+private:
+    queue<int> queue1;
+    int size = 0;
+};
+
