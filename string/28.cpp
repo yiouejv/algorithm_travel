@@ -93,3 +93,67 @@ private:
         return true;
     }
 };
+
+// 前缀: 以第一个字符开头，不包含最后一个字符的连续子串
+// 后缀: 以最后一个字符开头，不包含第一个字符的连续子串
+//
+// kmp 算法
+// aabaa
+// 前缀 a aa aab aaba
+// 后缀 a aa baa abaa
+// 2
+//
+// aaba
+// 前缀 a aa aab
+// 后缀 a ba aba
+// 1
+//
+// aab
+// 前缀 a aa
+// 后缀 b ab
+// 0
+//
+// aa
+// 前缀 a
+// 后缀 a
+// 1
+//
+// a
+// 0
+
+
+class Solution {
+public:
+    int strStr(string haystack, string needle) {
+        if (needle.empty()) {
+            return 0;
+        }
+        vector<int> prefix(needle.size(), 0);
+        GetPrefix(prefix, needle);
+        int j = 0;
+        for (int i = 0; i < haystack.size(); ++i) {
+            while (j > 0 && needle[j] != haystack[i]) {
+                j = prefix[j - 1];
+            }
+            if (needle[j] == haystack[i]) {
+                j ++;
+            }
+            if (j >= needle.size()) {
+                return i - needle.size() + 1;
+            }
+        }
+        return -1;
+    }
+    void GetPrefix(vector<int>& prefix, const string& needle) {
+        int j = 0;
+        for (int i = 1; i < needle.size(); ++i) {
+            while (j > 0 && needle[j] != needle[i]) {
+                j = prefix[j - 1];
+            }
+            if (needle[j] == needle[i]) {
+                ++j;
+            }
+            prefix[i] = j;
+        }
+    }
+};
