@@ -13,6 +13,8 @@
 
 <a href="stack_queue/readme.md">stack_queue</a>
 
+<a href="binary_tree/readme.md">binary_tree</a>
+
 <a href="other/readme.md">other</a>
 
 ------------------------------------
