@@ -65,11 +65,54 @@ struct TreeNode {
 
 每次写递归都是碰运气写对，递归到底怎么写？
 
-递归三部曲：
+递归看似简单好理解，但是经常一写就错。
 
-- 确定递归的参数和返回值: 确定哪些参数是递归过程中需要处理的，就在递归函数中加上这些参数，并且还要明确每次递归的返回值是什么从而确定返回值的类型
-- 确定终止条件：终止条件没有写或者写的不多，必将造成内存栈的溢出
-- 确定单层递归的逻辑：确定每一层递归需要处理的信息
+编写递归代码时，掌握这三部分，可以保证大家写出正确的递归算法。
+
+1. **确定递归函数的参数和返回值**: 确定哪些参数是递归过程中需要处理的，需要处理的加在递归函数的参数上，并且还要确认递归函数的返回值以确认返回值的类型。
+2. **递归的终止条件**: 避免忘记写递归函数的终止条件或者写错导致内存栈溢出。
+3. **单次递归需要完成的工作**：确定单次递归需要做的事件，多层递归就把整件事情解决了。
+
+<a href="https://leetcode-cn.com/problems/binary-tree-preorder-traversal/" target="_blank">144. 二叉树的前序遍历</a>
+
+<a href="https://leetcode-cn.com/problems/binary-tree-inorder-traversal/" target="_blank">94. 二叉树的中序遍历</a>
+
+<a href="https://leetcode-cn.com/problems/binary-tree-postorder-traversal/" target="_blank">145. 二叉树的后序遍历</a>
+
+这里以二叉树的前中后序遍历来尝试一下。
+
+二叉树的前序遍历, 先遍历根节点，再遍历左子树节点，再遍历右子树节点。
+
+1. 确定递归函数的参数和返回值: 递归过程需要对一个vector 进行追加操作，追加节点的值，也就是前序遍历的结果，vector需要作为递归函数的参数，遍历的结果直接放进了vector，不需要返回值，所以递归函数返回值为void。
+
+    ```c++
+        void Traversal(TreeNode *node, vector<int> &ans) {
+        }
+    ```
+
+2. 递归函数的终止条件: 当遍历节点为空时，递归结束了。
+
+    ```c++
+        void Traversal(TreeNode *node, vector<int> &ans) {
+            if (node == nullptr) {
+                return;
+            }
+        }
+    ```
+3. 单层递归需要做的事: 前序遍历，中左右，所以单层递归时，先加入根节点的值，再递归左子节点，再递归右子节点。
+
+    ```c++
+        void Traversal(TreeNode *node, vector<int> &ans) {
+            if (node == nullptr) {
+                return;
+            }
+            ans.push_back(root->val);  // 先根
+            Traversal(node->left);  // 左
+            Traversal(node->right);  // 右
+        }
+    ```
+
+中序遍历，后序遍历也是同样的道理，可以去试试。
 
 ------------------
 
