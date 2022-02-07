@@ -27,3 +27,25 @@ private:
         Traversal(root->right, ans);  // 右
     }
 };
+
+
+class Solution {
+public:
+    vector<int> preorderTraversal(TreeNode* root) {
+        vector<int> ans;
+        stack<TreeNode *> sta;
+        sta.push(root);
+
+        while (!sta.empty()) {
+            TreeNode *node = sta.top();
+            sta.pop();
+
+            if (node) {
+                ans.push_back(node->val);
+                sta.push(node->right);
+                sta.push(node->left);
+            }
+        }
+        return ans;
+    }
+};

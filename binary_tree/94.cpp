@@ -26,3 +26,27 @@ private:
         Traversal(root->right, ans);
     }
 };
+
+
+class Solution {
+public:
+    vector<int> inorderTraversal(TreeNode* root) {
+        vector<int> ans;
+        stack<TreeNode *> sta;
+        TreeNode *cur = root;
+
+        while (cur != nullptr || !sta.empty()) {
+            if (cur) {
+                sta.push(cur);  // 左
+                cur = cur->left;
+            } else {
+                cur = sta.top();
+                sta.pop();
+
+                ans.push_back(cur->val);  // 中
+                cur = cur->right;  // 右
+            }
+        }
+        return ans;
+    }
+};
