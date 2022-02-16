@@ -9,6 +9,7 @@
  *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
  * };
  */
+// 递归
 class Solution {
 public:
     TreeNode* invertTree(TreeNode* root) {
@@ -27,5 +28,22 @@ private:
 
         InvertNode(root->left);
         InvertNode(root->right);
+    }
+};
+
+// 广度优先
+class Solution {
+public:
+    TreeNode* invertTree(TreeNode* root) {
+        queue<TreeNode*> que;
+        if (root) que.push(root);
+        while (!que.empty()) {
+            TreeNode *cur = que.front();
+            que.pop();
+            swap(cur->left, cur->right);
+            if (cur->left) que.push(cur->left);
+            if (cur->right) que.push(cur->right);
+        }
+        return root;
     }
 };
